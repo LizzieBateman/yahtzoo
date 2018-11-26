@@ -5,6 +5,15 @@ import collections
 from scorecard import Scorecard
 from turn import Turn
 from turn import roll_a_dice
+from gui_class import Yahtzee_gui
+from Tkinter import *
+import ttk
+
+root = Tk()
+root.geometry("500x300")
+game_gui = Yahtzee_gui(root)
+
+game_gui.take_selection()
 
 def game():
 
@@ -18,7 +27,8 @@ def game():
         scorecard.show_scorecard()
 
         while True:
-                choice = raw_input("What would you like to take?")
+                
+                choice = game_gui.take_selection()
 
                 if choice == "quit":
                     return
@@ -178,6 +188,8 @@ def game():
         scorecard.show_scorecard()
 
     print "End of Game. Your final score is %s" % scorecard.total_score()
-    
-game()
+
+root.mainloop()
+
+
 
