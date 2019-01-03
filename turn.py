@@ -15,7 +15,7 @@ class Turn(object):
     def __init__(self):
 
         self.dice_values = []
-        self.throw_number = 0
+        self.throw_number = 1
 
 
     def throw_multiple_dice(self, number_of_dice):

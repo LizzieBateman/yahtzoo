@@ -8,7 +8,7 @@ class Scorecard(object):
 
     def __init__(self):
 
-        self.values = {"1's":"empty" , "2's":"empty" , "3's":"empty" , "4's":"empty" , "5's": "empty" , "6's": "empty" , "3 of a kind" : "empty" , "4 of a kind" : "empty" , "low run" : "empty" , "high run" : "empty" , "full house" : "empty", "sum" : "empty" , "yahtzee" : "empty"}
+        self.values = {"1s":"boo" , "2s":"poo" , "3s":"empty" , "4s":"empty" , "5s": "empty" , "6s": "empty" , "3 of a kind" : "empty" , "4 of a kind" : "empty" , "low run" : "empty" , "high run" : "empty" , "full house" : "empty", "sum" : "empty" , "yahtzee" : "empty"}
         
     def show_scorecard(self):    
         
@@ -22,7 +22,7 @@ class Scorecard(object):
             if dice == 1:
                 sum_of_1s +=1
         
-        self.values["1's"] = sum_of_1s
+        self.values["1s"] = sum_of_1s
     
     def take_2s(self, dices):
 
@@ -32,7 +32,7 @@ class Scorecard(object):
             if dice == 2:
                 sum_of_2s +=2
         
-        self.values["2's"] = sum_of_2s
+        self.values["2s"] = sum_of_2s
     
     def take_3s(self, dices):
         
@@ -42,7 +42,7 @@ class Scorecard(object):
             if dice == 3:
                 sum_of_3s +=3
         
-        self.values["3's"] = sum_of_3s
+        self.values["3s"] = sum_of_3s
     
     def take_4s(self, dices):
         
@@ -52,7 +52,7 @@ class Scorecard(object):
             if dice == 4:
                 sum_of_4s +=4
         
-        self.values["4's"] = sum_of_4s
+        self.values["4s"] = sum_of_4s
 
     def take_5s(self, dices):
         
@@ -62,7 +62,7 @@ class Scorecard(object):
             if dice == 5:
                 sum_of_5s +=5
         
-        self.values["5's"] = sum_of_5s
+        self.values["5s"] = sum_of_5s
 
     def take_6s(self, dices):
         
@@ -72,7 +72,7 @@ class Scorecard(object):
             if dice == 6:
                 sum_of_6s +=6
         
-        self.values["6's"] = sum_of_6s    
+        self.values["6s"] = sum_of_6s    
 
     def three_of_kind(self, dices, chosen_value):
 

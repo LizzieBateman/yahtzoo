@@ -9,11 +9,13 @@ from gui_class import Yahtzee_gui
 from Tkinter import *
 import ttk
 
-root = Tk()
-root.geometry("500x300")
-game_gui = Yahtzee_gui(root)
 
-game_gui.take_selection()
+root = Tk()
+root.geometry("700x500")
+
+this_scorecard = Scorecard()
+this_turn = Turn()
+game_gui = Yahtzee_gui(root, this_scorecard, this_turn)
 
 def game():
 
@@ -33,24 +35,24 @@ def game():
                 if choice == "quit":
                     return
                 
-                if choice == "1s" and scorecard.values["1's"] != 'empty':
-                    print "You have already taken 1's"
+                if choice == "1s" and scorecard.values["1s"] != 'empty':
+                    print "You have already taken 1s"
                     continue
 
                 if choice == "1s":
                     scorecard.take_1s(turn.dice_values)
                     break
 
-                if choice == "2s" and scorecard.values["2's"] != 'empty':
-                    print "You have already taken 2's"
+                if choice == "2s" and scorecard.values["2s"] != 'empty':
+                    print "You have already taken 2s"
                     continue                      
   
                 elif choice == "2s":
                     scorecard.take_2s(turn.dice_values)
                     break
 
-                if choice == "3s" and scorecard.values["3's"] != 'empty':
-                    print "You have already taken 3's"
+                if choice == "3s" and scorecard.values["3s"] != 'empty':
+                    print "You have already taken 3s"
                     continue
 
                 elif choice == "3s":
@@ -58,24 +60,24 @@ def game():
                     break
 
 
-                if choice == "4s" and scorecard.values["4's"] != 'empty':
-                    print "You have already taken 4's"
+                if choice == "4s" and scorecard.values["4s"] != 'empty':
+                    print "You have already taken 4s"
                     continue
 
                 elif choice == "4s":
                     scorecard.take_4s(turn.dice_values)
                     break
 
-                if choice == "5s" and scorecard.values["5's"] != 'empty':
-                    print "You have already taken 5's"
+                if choice == "5s" and scorecard.values["5s"] != 'empty':
+                    print "You have already taken 5s"
                     continue
 
                 elif choice == "5s":
                     scorecard.take_5s(turn.dice_values)
                     break
 
-                if choice == "6s" and scorecard.values["6's"] != 'empty':
-                    print "You have already taken 6's"
+                if choice == "6s" and scorecard.values["6s"] != 'empty':
+                    print "You have already taken 6s"
                     continue                
                 
                 elif choice == "6s":
