@@ -2,13 +2,13 @@ from random import randint
 import time
 import json
 import collections
-
+from collections import Counter
 
 class Scorecard(object):
 
     def __init__(self):
 
-        self.values = {"1s":"boo" , "2s":"poo" , "3s":"empty" , "4s":"empty" , "5s": "empty" , "6s": "empty" , "3 of a kind" : "empty" , "4 of a kind" : "empty" , "low run" : "empty" , "high run" : "empty" , "full house" : "empty", "sum" : "empty" , "yahtzee" : "empty"}
+        self.values = {"1s":"empty" , "2s":"empty" , "3s":"empty" , "4s":"empty" , "5s": "empty" , "6s": "empty" , "3 of a kind" : "empty" , "4 of a kind" : "empty" , "low run" : "empty" , "high run" : "empty" , "full house" : "empty", "sum" : "empty" , "yahtzee" : "empty"}
         
     def show_scorecard(self):    
         
@@ -74,15 +74,13 @@ class Scorecard(object):
         
         self.values["6s"] = sum_of_6s    
 
-    def three_of_kind(self, dices, chosen_value):
+    def three_of_kind(self, dices):
 
-        count = 0
-        three_of_a_kind = 0        
-            
-        for dice in dices:
-            if  dice == chosen_value and count < 3:
-                three_of_a_kind += chosen_value
-                count += 1
+        check_values = dict(Counter(dices).most_common(1))
+
+        value = check_values.keys()[0]
+
+        three_of_a_kind = 3*value
         
         self.values["3 of a kind"] = three_of_a_kind
 
@@ -91,14 +89,13 @@ class Scorecard(object):
         self.values["3 of a kind"] = "x"        
 
     def four_of_kind(self, dices, chosen_value):
-        count = 0
-        four_of_a_kind = 0        
-            
-        for dice in dices:
-            if  dice == chosen_value and count < 4:
-                four_of_a_kind += chosen_value
-                count += 1
-        
+
+        check_values = dict(Counter(dices).most_common(1))
+
+        value = check_values.keys()[0]
+
+        four_of_a_kind = 4*value
+
         self.values["4 of a kind"] = four_of_a_kind  
     
     def no_four_of_a_kind(self):

@@ -9,30 +9,25 @@ def roll_a_dice():
 
     return randint(1,6)
 
-
 class Turn(object):
    
     def __init__(self):
 
         self.dice_values = []
-        self.throw_number = 1
-
+        self.throw_number = 0
 
     def throw_multiple_dice(self, number_of_dice):
 
         for i in range(0,number_of_dice):
 
             self.dice_values.append(roll_a_dice())
-            #order the list?
 
         return    
-       
 
     def take_turn(self):
         
         #A turn is up to and including 3 individual throws of 5 or less dice
         self.throw_multiple_dice(5)
-        self.throw_number += 1
 
         #Print result and throw number
         def show_throw_and_dices():
@@ -76,7 +71,6 @@ class Turn(object):
                 #Throw replacement dices
             self.throw_multiple_dice(len(numbers_to_re_roll))
 
-            self.throw_number += 1
 
         additional_throw()
         
